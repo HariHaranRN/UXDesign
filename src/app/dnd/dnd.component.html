@@ -1,0 +1,71 @@
+
+<div class="container" fxLayout="row" fxLayoutGap="15px">
+    <div class="item">
+        <h2>Backlog</h2>
+        <div class="inside">
+            <div
+            cdkDropList
+            #backlogList="cdkDropList"
+            [cdkDropListData]="backlog"
+            [cdkDropListConnectedTo]="[inProgressList, inReviewList, finishedList]"
+            (cdkDropListDropped)="drop($event)">
+                <mat-card class="card" *ngFor="let item of backlog" cdkDrag>
+                    <mat-card-content>
+                        <p>{{item}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <h2>Work in progress</h2>
+        <div class="inside">
+            <div
+            cdkDropList
+            #inProgressList="cdkDropList"
+            [cdkDropListData]="inProgress"
+            [cdkDropListConnectedTo]="[backlogList, inReviewList, finishedList]"
+            (cdkDropListDropped)="drop($event)">
+                <mat-card class="card" *ngFor="let item of inProgress" cdkDrag>
+                    <mat-card-content>
+                        <p>{{item}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <h2>In Review</h2>
+        <div class="inside">
+            <div
+            cdkDropList
+            #inReviewList="cdkDropList"
+            [cdkDropListData]="inReview"
+            [cdkDropListConnectedTo]="[backlogList, inProgressList, finishedList]"
+            (cdkDropListDropped)="drop($event)">
+                <mat-card class="card" *ngFor="let item of inReview" cdkDrag>
+                    <mat-card-content>
+                        <p>{{item}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <h2>Finished</h2>
+        <div class="inside">
+            <div
+            cdkDropList
+            #finishedList="cdkDropList"
+            [cdkDropListData]="finished"
+            [cdkDropListConnectedTo]="[backlogList, inProgressList, inReviewList]"
+            (cdkDropListDropped)="drop($event)">
+                <mat-card class="card" *ngFor="let item of finished" cdkDrag>
+                    <mat-card-content>
+                        <p>{{item}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
