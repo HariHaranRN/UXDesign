@@ -14,20 +14,21 @@ export class DndComponent implements OnInit {
   }
 
   backlog = [
-    "hello",
-    "hello"
+    "Hero section to be improved based on the new feedback",
+    "Add one more type of chart to the left hand"
   ];
   inProgress = [
-    "hello",
-    "hello"
+    "Copywriting review for all copies inside app",
+    "H1, H2 and all titles need tags for better performance",
+    "improve colors to have a better constant"
   ];
   inReview = [
-    "hello",
-    "hello"
+    "Update for newest iOS build"
   ];
   finished = [
-    "hello",
-    "hello"
+   "Update for newest iOS build",
+   "Find new ways to make it look more minimal and clean",
+   "User experience needsd to be tested on all devices"
   ];
 
   drop(event: CdkDragDrop<string[]>) {

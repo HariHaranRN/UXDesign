@@ -1,0 +1,64 @@
+.container {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+p {
+    color: grey;
+}
+.cardOne {
+    box-shadow: none !important;
+    background-color: #f7f8f9;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.cardOne p span{
+    background-color:#c3d3f4 ;
+    padding: 5px;
+    border-radius: 5px;
+}
+.nextLine {
+    color: gray;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nextLine p{
+    float: left;
+}
+.nextLine mat-icon {
+    float: right;
+}
+.cardTwo {
+    margin-top: 35px;
+    box-shadow: none !important;
+    background-color: #eef3ff!important;
+    border-radius: 15px!important;
+}
+ul {
+    list-style: none;
+    margin-left: -35px;
+  }
+li:before {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    color: grey;
+}
+li {
+    color: grey;
+}
+.icon {
+    font-size:medium;
+}
+.cardThree {
+    margin-top: 5px;
+    box-shadow: none !important;
+    background-color: #ede0fb;
+    border-radius: 15px!important;
+}
+.cardFour {
+    margin-top: 5px;
+    box-shadow: none !important;
+    background-color: #fdf3e1;
+    border-radius: 15px!important;
+}
