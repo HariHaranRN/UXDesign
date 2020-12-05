@@ -1,4 +1,27 @@
-
+<div class="nav-container">
+    <mat-card class="nav-card " fxLayout="row">
+        <div class="nav-log">
+            <img src="./../../assets/img/cc.png">
+        </div>
+        <div class="nav-text" fxLayoutGap="650px">
+            <br><br>
+            <p><b>Covert Cost</b></p>
+            <p>In Progress</p>
+        </div>
+        <div class="navRight">
+            <mat-icon>tune</mat-icon>
+        </div>
+        <div class="navRight">
+            <mat-icon>local_offer</mat-icon>
+        </div>
+        <div class="navButton">
+            <button mat-flat-button color="primary" style="background-color: #377aea;"><mat-icon>add</mat-icon>Add Task</button>
+        </div>
+        <div class="navRight">
+            <mat-icon>settings</mat-icon>
+        </div>
+    </mat-card>
+</div>
 <div class="container" fxLayout="row" fxLayoutGap="15px">
     <div class="item">
         <h2>Backlog</h2>
@@ -10,13 +33,25 @@
             [cdkDropListConnectedTo]="[inProgressList, inReviewList, finishedList]"
             (cdkDropListDropped)="drop($event)">
                 <mat-card class="card" *ngFor="let item of backlog" cdkDrag>
+                    <mat-card-header>
+                        <mat-card-title>
+                                <span class="headerIcon">+ Add Tag</span>
+                        </mat-card-title>
+                       
+                    </mat-card-header>
                     <mat-card-content>
                         <p>{{item}}</p>
                     </mat-card-content>
+                    <mat-footer>
+                        <div class="footerIcon">
+                            <mat-icon>attach_file</mat-icon>
+                            <mat-icon>insert_comment</mat-icon>
+                        </div>
+                    </mat-footer>
                 </mat-card>
             </div>
             <div class="addTask">
-                <button mat-stroked-button color="primary" style="width: 100%;"><mat-icon>add</mat-icon>&nbsp;Add another task</button>
+                <button mat-stroked-button color="primary" style="width: 100%;"><mat-icon class="addIcon">add</mat-icon>&nbsp;Add another task</button>
             </div>
         </div>
     </div>
@@ -30,9 +65,18 @@
             [cdkDropListConnectedTo]="[backlogList, inReviewList, finishedList]"
             (cdkDropListDropped)="drop($event)">
                 <mat-card class="card" *ngFor="let item of inProgress" cdkDrag>
+                    <mat-card-title>
+                    <span class="headerIcon">+ Add Tag</span>
+                    </mat-card-title>
                     <mat-card-content>
                         <p>{{item}}</p>
                     </mat-card-content>
+                    <mat-footer>
+                        <div class="footerIcon">
+                            <mat-icon>attach_file</mat-icon>
+                            <mat-icon>insert_comment</mat-icon>
+                        </div>
+                    </mat-footer>
                 </mat-card>
             </div>
             <div class="addTask">
@@ -50,9 +94,18 @@
             [cdkDropListConnectedTo]="[backlogList, inProgressList, finishedList]"
             (cdkDropListDropped)="drop($event)">
                 <mat-card class="card" *ngFor="let item of inReview" cdkDrag>
+                    <mat-card-title>
+                    <span class="headerIcon">+ Add Tag</span>
+                    </mat-card-title>
                     <mat-card-content>
                         <p>{{item}}</p>
                     </mat-card-content>
+                    <mat-footer>
+                        <div class="footerIcon">
+                            <mat-icon>attach_file</mat-icon>
+                            <mat-icon>insert_comment</mat-icon>
+                        </div>
+                    </mat-footer>
                 </mat-card>
             </div>
             <div class="addTask">
@@ -70,9 +123,18 @@
             [cdkDropListConnectedTo]="[backlogList, inProgressList, inReviewList]"
             (cdkDropListDropped)="drop($event)">
                 <mat-card class="card" *ngFor="let item of finished" cdkDrag>
+                    <mat-card-title>
+                    <span class="headerIcon">+ Add Tag</span>
+                    </mat-card-title>
                     <mat-card-content>
                         <p>{{item}}</p>
                     </mat-card-content>
+                    <mat-footer>
+                        <div class="footerIcon">
+                            <mat-icon>attach_file</mat-icon>
+                            <mat-icon>insert_comment</mat-icon>
+                        </div>
+                    </mat-footer>
                 </mat-card>
             </div>
             <div class="addTask">

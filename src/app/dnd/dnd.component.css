@@ -1,6 +1,36 @@
+
+.nav-container mat-card{
+    box-shadow: 0 1px 2px rgba(0,0,0,0), 0 1px 6px rgba(0,0,0,0.20)!important;
+}
+.nav-card {
+    margin: 10px;
+    padding: 7px!important;
+}
+.nav-log {
+    padding-left: 20px;
+    padding-right: 8px;
+}
+.nav-text {
+
+    line-height: 7px;
+    font-size: 13px;
+}
+.navRight mat-icon{
+    margin-top: 9px;
+    margin-left: 6px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: grey;
+}
+.navButton {
+    margin-top: 9px;
+    margin-left: 6px;
+}
 .container{
     width: 100%;
     padding: 10px;
+    height: 100%;
 }
 .item{
     width: 25%;
@@ -39,10 +69,26 @@
     background-color: #eaf0fa!important;
     border: none !important;
 }
-
-mat-icon{
-    background-color: #377ae9!important;
-    color: white!important;
-    border-radius:15px;
+mat-card-titile {
+    width: 100%;
 }
+::ng-deep .mat-card-header-text {
+    margin: 0px!important; 
+  }
+.headerIcon {
+    color: #377ae9 ;
+    border: 1px dashed #377ae9;
+    border-radius: 15px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.footerIcon {
+    text-align: right;
+}
+.footerIcon mat-icon{
+    font-size: 18px;
+}
+
+
   
