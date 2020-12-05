@@ -27,12 +27,13 @@
         <h2>Backlog</h2>
         <div class="inside">
             <div
+            class="dropZone"
             cdkDropList
             #backlogList="cdkDropList"
             [cdkDropListData]="backlog"
             [cdkDropListConnectedTo]="[inProgressList, inReviewList, finishedList]"
             (cdkDropListDropped)="drop($event)">
-                <mat-card class="card" *ngFor="let item of backlog" cdkDrag>
+                <mat-card class="card" *ngFor="let item of backlog; let i = index" cdkDrag>
                     <mat-card-header>
                         <mat-card-title>
                                 <span class="headerIcon">+ Add Tag</span>
@@ -44,9 +45,16 @@
                     </mat-card-content>
                     <mat-footer>
                         <div class="footerIcon">
+                            <select (change)="fromBacklog(i, $event.target.value)">
+                                <option value="Backlog">Backlog</option>
+                                <option value="workInProgress">Work in Progress</option>
+                                <option value="inReview">In Review</option>
+                                <option value="finished">Finished</option>
+                            </select>
                             <mat-icon>attach_file</mat-icon>
                             <mat-icon>insert_comment</mat-icon>
                         </div>
+
                     </mat-footer>
                 </mat-card>
             </div>
@@ -59,12 +67,13 @@
         <h2>Work in progress</h2>
         <div class="inside">
             <div
+            class="dropZone"
             cdkDropList
             #inProgressList="cdkDropList"
             [cdkDropListData]="inProgress"
             [cdkDropListConnectedTo]="[backlogList, inReviewList, finishedList]"
             (cdkDropListDropped)="drop($event)">
-                <mat-card class="card" *ngFor="let item of inProgress" cdkDrag>
+                <mat-card class="card" *ngFor="let item of inProgress; let i = index" cdkDrag>
                     <mat-card-title>
                     <span class="headerIcon">+ Add Tag</span>
                     </mat-card-title>
@@ -73,6 +82,12 @@
                     </mat-card-content>
                     <mat-footer>
                         <div class="footerIcon">
+                            <select (change)="fromInProgress(i, $event.target.value)">
+                                <option value="workInProgress">Work in Progress</option>
+                                <option value="Backlog">Backlog</option>
+                                <option value="inReview">In Review</option>
+                                <option value="finished">Finished</option>
+                            </select>
                             <mat-icon>attach_file</mat-icon>
                             <mat-icon>insert_comment</mat-icon>
                         </div>
@@ -88,12 +103,13 @@
         <h2>In Review</h2>
         <div class="inside">
             <div
+            class="dropZone"
             cdkDropList
             #inReviewList="cdkDropList"
             [cdkDropListData]="inReview"
             [cdkDropListConnectedTo]="[backlogList, inProgressList, finishedList]"
             (cdkDropListDropped)="drop($event)">
-                <mat-card class="card" *ngFor="let item of inReview" cdkDrag>
+                <mat-card class="card" *ngFor="let item of inReview; let i = index;" cdkDrag>
                     <mat-card-title>
                     <span class="headerIcon">+ Add Tag</span>
                     </mat-card-title>
@@ -102,6 +118,12 @@
                     </mat-card-content>
                     <mat-footer>
                         <div class="footerIcon">
+                            <select (change)="fromInReview(i, $event.target.value)">
+                                <option value="inReview">In Review</option>
+                                <option value="Backlog">Backlog</option>
+                                <option value="workInProgress">Work in Progress</option>
+                                <option value="finished">Finished</option>
+                            </select>
                             <mat-icon>attach_file</mat-icon>
                             <mat-icon>insert_comment</mat-icon>
                         </div>
@@ -117,12 +139,13 @@
         <h2>Finished</h2>
         <div class="inside">
             <div
+            class="dropZone"
             cdkDropList
             #finishedList="cdkDropList"
             [cdkDropListData]="finished"
             [cdkDropListConnectedTo]="[backlogList, inProgressList, inReviewList]"
             (cdkDropListDropped)="drop($event)">
-                <mat-card class="card" *ngFor="let item of finished" cdkDrag>
+                <mat-card class="card" *ngFor="let item of finished; let i = index" cdkDrag>
                     <mat-card-title>
                     <span class="headerIcon">+ Add Tag</span>
                     </mat-card-title>
@@ -131,6 +154,11 @@
                     </mat-card-content>
                     <mat-footer>
                         <div class="footerIcon">
+                            <select (change)="fromFinished(i, $event.target.value)">
+                                <option value="finished">Finished</option>
+                                <option value="Backlog">Backlog</option>
+                                <option value="workInProgress">Work in Progress</option>
+                            </select>
                             <mat-icon>attach_file</mat-icon>
                             <mat-icon>insert_comment</mat-icon>
                         </div>

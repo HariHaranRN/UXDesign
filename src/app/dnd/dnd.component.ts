@@ -33,12 +33,86 @@ export class DndComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
+      debugger
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      debugger
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+    }
+  }
+  fromBacklog(i, val){
+    var get;
+    if(val == "workInProgress" ){
+      get = this.backlog[i];
+      this.backlog.splice(i, 1);
+      this.inProgress.push(get);
+    }else if(val == "inReview"){
+      get = this.backlog[i];
+      this.backlog.splice(i, 1);
+      this.inReview.push(get);
+    }else if( val == "finished"){
+      get = this.backlog[i];
+      this.backlog.splice(i, 1);
+      this.finished.push(get);
+    }else{
+
+    }
+  }
+  fromInProgress(i, val){
+    var get;
+    if(val == "Backlog" ){
+      get = this.inProgress[i];
+      this.inProgress.splice(i, 1);
+      this.backlog.push(get);
+    }else if(val == "inReview"){
+      get = this.inProgress[i];
+      this.inProgress.splice(i, 1);
+      this.inReview.push(get);
+    }else if( val == "finished"){
+      get = this.inProgress[i];
+      this.inProgress.splice(i, 1);
+      this.finished.push(get);
+    }else{
+
+    }
+  }
+  fromInReview(i, val){
+    var get;
+    if(val == "Backlog" ){
+      get = this.inReview[i];
+      this.inReview.splice(i, 1);
+      this.backlog.push(get);
+    }else if(val == "workInProgress"){
+      get = this.inReview[i];
+      this.inReview.splice(i, 1);
+      this.inProgress.push(get);
+    }else if( val == "finished"){
+      get = this.inReview[i];
+      this.inReview.splice(i, 1);
+      this.finished.push(get);
+    }else{
+
+    }
+  }
+  fromFinished(i, val){
+    var get;
+    if(val == "Backlog" ){
+      get = this.finished[i];
+      this.finished.splice(i, 1);
+      this.backlog.push(get);
+    }else if(val == "workInProgress"){
+      get = this.finished[i];
+      this.finished.splice(i, 1);
+      this.inProgress.push(get);
+    }else if( val == "inReview"){
+      get = this.finished[i];
+      this.finished.splice(i, 1);
+      this.inReview.push(get);
+    }else{
+
     }
   }
 }
